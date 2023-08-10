@@ -28,8 +28,8 @@ class database {
         return;
     }
 
-    function selectjoin($table,$row="*",$join,$where,$on,$gb){
-        $sql = "SELECT $row FROM $table  $join ON $on WHERE $where GROUP BY $gb";
+    function selectjoin($table,$row="*",$join,$jointable,$on,$where){
+        $sql = "SELECT $row FROM $table  $join $jointable ON $on WHERE $where ";
         $this -> query = $this -> mysqli -> query($sql);
         return;
     }

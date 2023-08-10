@@ -46,6 +46,8 @@ if(isset($_POST['create_food'])){
     <link rel="stylesheet" href="./../../bs/css/bootstrap.min.css">
     <link rel="stylesheet" href="./../../bs/style/admin.css">
     <script src="./../../bs/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./../../bs/style/standard.css">
+
     <script src="./../../bs/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
