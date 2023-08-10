@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2023 at 04:56 AM
+-- Generation Time: Aug 10, 2023 at 05:30 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,6 +49,15 @@ CREATE TABLE `restaurant_detail` (
   `timestamp_d` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `restaurant_detail`
+--
+
+INSERT INTO `restaurant_detail` (`id_o`, `id_f`, `count_d`, `price_d`, `timestamp_d`) VALUES
+(297395969, 2, 1, 0, '2023-08-10 15:29:35'),
+(940796058, 1, 2, 0, '2023-08-10 14:24:23'),
+(940796058, 2, 2, 0, '2023-08-10 14:24:23');
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +73,14 @@ CREATE TABLE `restaurant_menu` (
   `timestamp_u` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `restaurant_menu`
+--
+
+INSERT INTO `restaurant_menu` (`id_m`, `name_m`, `img_m`, `price_m`, `status_u`, `timestamp_u`) VALUES
+(1, 'ข้าวผัด', '22821525.jpg', 200, 1, '2023-08-10 12:03:16'),
+(2, 'ก๋วยเตี๋ยว', '1426563276.jpg', 150, 1, '2023-08-10 12:03:50');
+
 -- --------------------------------------------------------
 
 --
@@ -76,6 +93,14 @@ CREATE TABLE `restaurant_order` (
   `status_own` int(1) NOT NULL DEFAULT 1,
   `timestamp_o` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `restaurant_order`
+--
+
+INSERT INTO `restaurant_order` (`id_o`, `id_own`, `status_own`, `timestamp_o`) VALUES
+(297395969, 3, 1, '2023-08-10 15:29:35'),
+(940796058, 3, 1, '2023-08-10 14:24:23');
 
 -- --------------------------------------------------------
 
@@ -93,6 +118,15 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_u`, `username_u`, `email_u`, `password_u`, `status_u`, `timestamp_u`) VALUES
+(1, 'admin', 'admin@email.com', '1234', 'admin', '2023-08-10 11:26:56'),
+(2, 'user1329', 'user@email.com', '1234', 'member', '2023-08-10 11:27:19'),
+(3, 'user1234', 'ktgz1421177@hotmail.com', '1234', 'member', '2023-08-10 11:33:23');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -101,7 +135,8 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `restaurant_cart`
   ADD PRIMARY KEY (`id_c`),
-  ADD KEY `id_own` (`id_own`,`id_f`);
+  ADD KEY `id_own` (`id_own`,`id_f`),
+  ADD KEY `id_f` (`id_f`);
 
 --
 -- Indexes for table `restaurant_detail`
@@ -137,25 +172,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `restaurant_cart`
 --
 ALTER TABLE `restaurant_cart`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `restaurant_menu`
 --
 ALTER TABLE `restaurant_menu`
-  MODIFY `id_m` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `restaurant_order`
---
-ALTER TABLE `restaurant_order`
-  MODIFY `id_o` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_m` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_u` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_u` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -165,14 +194,15 @@ ALTER TABLE `users`
 -- Constraints for table `restaurant_cart`
 --
 ALTER TABLE `restaurant_cart`
-  ADD CONSTRAINT `restaurant_cart_ibfk_1` FOREIGN KEY (`id_own`) REFERENCES `users` (`id_u`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `restaurant_cart_ibfk_1` FOREIGN KEY (`id_own`) REFERENCES `users` (`id_u`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `restaurant_cart_ibfk_2` FOREIGN KEY (`id_f`) REFERENCES `restaurant_menu` (`id_m`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `restaurant_detail`
 --
 ALTER TABLE `restaurant_detail`
-  ADD CONSTRAINT `restaurant_detail_ibfk_1` FOREIGN KEY (`id_o`) REFERENCES `restaurant_order` (`id_o`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `restaurant_detail_ibfk_2` FOREIGN KEY (`id_f`) REFERENCES `restaurant_menu` (`id_m`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `restaurant_detail_ibfk_5` FOREIGN KEY (`id_o`) REFERENCES `restaurant_order` (`id_o`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `restaurant_detail_ibfk_6` FOREIGN KEY (`id_f`) REFERENCES `restaurant_menu` (`id_m`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `restaurant_order`
