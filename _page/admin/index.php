@@ -74,6 +74,8 @@ if(isset($_POST['create_food'])){
 
                     }else if($page === "EditFood"){
                         include('./edit_food.php');
+                    }else if($page === "History"){
+                        include('./history_admin.php');
                     }
                 }else{ ?>
             <h3>Welcome to Management System</h3>
