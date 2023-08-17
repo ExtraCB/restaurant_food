@@ -15,7 +15,7 @@
             ?>
                 <div class="col-xl-3 col-sm-6 mb-5">
                     <div class="bg-white rounded shadow-sm py-5 px-4" style="height:275px;">
-                        <img src="./../../_system/upload/<?= $fetch_new->img_m ?>" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <img src="./../../_system/upload/<?= $fetch_new->img_m ?>" alt="" width="75" height="75" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                         <h5 class="mb-0"><?= $fetch_new->name_m ?></h5><span class="small text-uppercase text-muted">ราคา
                             : <?= $fetch_new->price_m ?></span>
                         <div class="input-group">

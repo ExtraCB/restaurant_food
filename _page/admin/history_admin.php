@@ -2,8 +2,7 @@
     <div class="col-2"></div>
     <div class="col-8">
         <h3>ประวัติการสั่งซื้อ</h3>
-        <div class="accordion" id="accordionExample">
-            <?php
+        <?php
             $db_history = new database();
 
 
@@ -11,15 +10,17 @@
             while ($fetch_history = $db_history->query->fetch_object()) {
                 $id_order = $fetch_history->id_o;
             ?>
+        <div class="accordion" id="accordionExample<?= $id_order ?>">
+            
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        data-bs-target="#collapseOne<?= $id_order ?>" aria-expanded="true" aria-controls="collapseOne">
                         <?= "ออร์เดอร์รหัสที่ " . $id_order ?>
                     </button>
                 </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
+                <div id="collapseOne<?= $id_order ?>" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample<?= $id_order ?>">
                     <div class="accordion-body">
                         <?php
                             $pricesum = 0;
@@ -54,8 +55,8 @@
                     </div>
                 </div>
             </div>
-            <?php } ?>
         </div>
+        <?php } ?>
     </div>
     <div class="col-2"></div>
 </div>

@@ -53,3 +53,40 @@ if (isset($_POST['submit_pay'])) {
         }
     }
 }
+
+if(isset($_GET['plusItem'])){
+    $id = $_GET['id'];
+    $count = "c_count + 1";
+
+    $data = [
+        "c_count" => $count
+    ];
+
+    $db -> mysqli -> query("UPDATE restaurant_cart SET c_count = c_count + 1 WHERE id_c = $id");
+
+
+
+
+    
+    if($db -> mysqli -> query){
+        header('location:./../index.php?page=cart');
+    }else{
+        header('location:./../index.php?page=cart');
+    }
+}
+
+if(isset($_GET['delItem'])){
+    $id = $_GET['id'];
+
+    $db -> mysqli -> query("UPDATE restaurant_cart SET c_count = c_count - 1 WHERE id_c = $id");
+
+
+
+
+    
+    if($db -> mysqli -> query){
+        header('location:./../index.php?page=cart');
+    }else{
+        header('location:./../index.php?page=cart');
+    }
+}

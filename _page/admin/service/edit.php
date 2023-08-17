@@ -2,11 +2,16 @@
 include('./../../../_system/database.php');
 $db = new database();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $file = $_FILES['file'];
+    
     $id = $_POST["id"];
 
-    if($file['name'] != ""){
-        $newfile = $db -> uploadFile2($file);
+    if(isset($_FILES['file'])){
+        $file = $_FILES['file'];
+        if($file['name'] != ""){
+            $newfile = $db -> uploadFile2($file);
+        }else{
+            $newfile = "";
+        }
     }else{
         $newfile = "";
     }

@@ -52,7 +52,7 @@ if(isset($_POST['create_food'])){
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
+<body style="background-color:#EEEEE">
     <!--Main Navigation-->
     <header>
         <?php include('./../_component/navadmin.php'); ?>

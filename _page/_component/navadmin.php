@@ -19,7 +19,7 @@
  <!-- Sidebar -->
 
  <!-- Navbar -->
- <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+ <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
      <!-- Container wrapper -->
      <div class="container-fluid">
          <!-- Toggle button -->

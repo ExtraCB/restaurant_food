@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2023 at 05:30 PM
+-- Generation Time: Aug 17, 2023 at 06:53 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -35,6 +35,14 @@ CREATE TABLE `restaurant_cart` (
   `c_timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `restaurant_cart`
+--
+
+INSERT INTO `restaurant_cart` (`id_c`, `id_own`, `id_f`, `c_count`, `c_timestamp`) VALUES
+(13, 3, 1, 3, '2023-08-17 04:48:22'),
+(14, 3, 5, 3, '2023-08-17 04:48:25');
+
 -- --------------------------------------------------------
 
 --
@@ -54,9 +62,14 @@ CREATE TABLE `restaurant_detail` (
 --
 
 INSERT INTO `restaurant_detail` (`id_o`, `id_f`, `count_d`, `price_d`, `timestamp_d`) VALUES
+(92427431, 1, 2, 0, '2023-08-17 04:48:02'),
+(92427431, 4, 2, 0, '2023-08-17 04:48:02'),
+(92427431, 5, 2, 0, '2023-08-17 04:48:02'),
 (297395969, 2, 1, 0, '2023-08-10 15:29:35'),
 (940796058, 1, 2, 0, '2023-08-10 14:24:23'),
-(940796058, 2, 2, 0, '2023-08-10 14:24:23');
+(940796058, 2, 2, 0, '2023-08-10 14:24:23'),
+(1386306507, 1, 2, 0, '2023-08-17 02:40:14'),
+(1386306507, 2, 1, 0, '2023-08-17 02:40:14');
 
 -- --------------------------------------------------------
 
@@ -78,8 +91,11 @@ CREATE TABLE `restaurant_menu` (
 --
 
 INSERT INTO `restaurant_menu` (`id_m`, `name_m`, `img_m`, `price_m`, `status_u`, `timestamp_u`) VALUES
-(1, 'ข้าวผัด', '22821525.jpg', 200, 1, '2023-08-10 12:03:16'),
-(2, 'ก๋วยเตี๋ยว', '1426563276.jpg', 150, 1, '2023-08-10 12:03:50');
+(1, 'ข้าวผัด American', '1990154617.jpg', 80, 1, '2023-08-10 12:03:16'),
+(2, 'ก๋วยเตี๋ยว', '1426563276.jpg', 150, 1, '2023-08-10 12:03:50'),
+(3, 'Pizza', '623790879.jpg', 199, 1, '2023-08-17 02:53:31'),
+(4, 'ผัดไทย', '1084669639.jpg', 100, 1, '2023-08-17 02:54:56'),
+(5, 'สเต็กเนื้อ', '1403730516.jpg', 990, 1, '2023-08-17 03:10:41');
 
 -- --------------------------------------------------------
 
@@ -99,8 +115,10 @@ CREATE TABLE `restaurant_order` (
 --
 
 INSERT INTO `restaurant_order` (`id_o`, `id_own`, `status_own`, `timestamp_o`) VALUES
+(92427431, 3, 1, '2023-08-17 04:48:02'),
 (297395969, 3, 1, '2023-08-10 15:29:35'),
-(940796058, 3, 1, '2023-08-10 14:24:23');
+(940796058, 3, 1, '2023-08-10 14:24:23'),
+(1386306507, 3, 1, '2023-08-17 02:40:14');
 
 -- --------------------------------------------------------
 
@@ -172,13 +190,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `restaurant_cart`
 --
 ALTER TABLE `restaurant_cart`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `restaurant_menu`
 --
 ALTER TABLE `restaurant_menu`
-  MODIFY `id_m` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_m` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

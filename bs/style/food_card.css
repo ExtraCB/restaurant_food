@@ -3,5 +3,31 @@
 }
 
 .img-thumbnail:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
+}
+
+
+.table_cart{
+    width:100%;
+
+}
+
+.item_col1{
+    display: flex;
+}
+
+.item_col1 img{
+    margin-left:10px;
+    margin-right : 10px;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+.flex-container a,.flex-container h5{
+    margin:0;
+    padding:10px;
 }

@@ -23,7 +23,7 @@ $userid = $_SESSION['userid'];
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
+<body style="background-color:#EEEEEE">
     <!--Main Navigation-->
     <header>
         <?php include('./../_component/navuser.php'); ?>
