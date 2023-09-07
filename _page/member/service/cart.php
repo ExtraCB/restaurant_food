@@ -90,3 +90,15 @@ if(isset($_GET['delItem'])){
         header('location:./../index.php?page=cart');
     }
 }
+
+if(isset($_GET['delete'])){
+    $id = $_GET['id'];
+
+    $db -> mysqli -> query("DELETE FROM restaurant_cart WHERE id_c = '$id'");
+
+    if($db -> mysqli -> affected_rows > 0){
+        http_response_code(200);
+    }else{
+        http_response_code(400);
+    }
+}
